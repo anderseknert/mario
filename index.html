@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Characters Gallery</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #e52521;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .character-card {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .character-card:hover {
+            transform: scale(1.05);
+        }
+        .character-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .character-name {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mario Characters Gallery</h1>
+    <div class="gallery" id="characterGallery">
+        <!-- Characters will be added here dynamically -->
+    </div>
+
+    <script>
+        // Sample character data - you can expand this list
+        const characters = [
+            { name: 'Mario', image: 'assets/mario.png' },
+            { name: 'Luigi', image: 'assets/luigi.png' },
+            { name: 'Princess Peach', image: 'assets/princess_peach.png' },
+            { name: 'Bowser', image: 'assets/bowser.png' },
+            { name: 'Yoshi', image: 'assets/yoshi.png' },
+            { name: 'Toad', image: 'assets/toad.png' },
+            { name: 'Donkey Kong', image: 'assets/donkey_kong.png' },
+            { name: 'Diddy Kong', image: 'assets/diddy_kong.png' },
+            { name: 'Wario', image: 'assets/wario.png' },
+            { name: 'Waluigi', image: 'assets/waluigi.png' },
+            { name: 'Rosalina', image: 'assets/rosalina.png' },
+            { name: 'Daisy', image: 'assets/daisy.png' },
+            { name: 'Bowser Jr.', image: 'assets/bowser_jr.png' },
+            { name: 'Koopa Troopa', image: 'assets/koopa_troopa.png' },
+            { name: 'Shy Guy', image: 'assets/shy_guy.png' },
+            { name: 'Boo', image: 'assets/boo.png' },
+            { name: 'Dry Bones', image: 'assets/dry_bones.png' },
+            { name: 'Birdo', image: 'assets/birdo.png' },
+            { name: 'Kamek', image: 'assets/kamek.png' },
+            { name: 'Lakitu', image: 'assets/lakitu.png' },
+            { name: 'Piranha Plant', image: 'assets/piranha_plant.png' },
+        ];
+
+        // Create character cards
+        const gallery = document.getElementById('characterGallery');
+        characters.forEach(character => {
+            const card = document.createElement('div');
+            card.className = 'character-card';
+            card.innerHTML = `
+                <img src="${character.image}" alt="${character.name}">
+                <div class="character-name">${character.name}</div>
+            `;
+            
+            // Add click event for text-to-speech
+            card.addEventListener('click', () => {
+                const utterance = new SpeechSynthesisUtterance(character.name);
+                utterance.rate = 0.8; // Slightly slower for kids
+                window.speechSynthesis.speak(utterance);
+            });
+            
+            gallery.appendChild(card);
+        });
+    </script>
+</body>
+</html> 
