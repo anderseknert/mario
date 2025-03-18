@@ -93,6 +93,17 @@
             card.addEventListener('click', () => {
                 const utterance = new SpeechSynthesisUtterance(character.name);
                 utterance.rate = 0.8; // Slightly slower for kids
+                
+                // Get available voices and select an English voice
+                const voices = window.speechSynthesis.getVoices();
+                const englishVoice = voices.find(voice => 
+                    voice.lang.startsWith('en') && voice.localService
+                );
+                
+                if (englishVoice) {
+                    utterance.voice = englishVoice;
+                }
+                
                 window.speechSynthesis.speak(utterance);
             });
             
