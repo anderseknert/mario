@@ -94,13 +94,20 @@
                 const utterance = new SpeechSynthesisUtterance(character.name);
                 utterance.rate = 0.8; // Slightly slower for kids
                 
-                // Get available voices and select an English voice
+                // Get available voices and select an American English voice
                 const voices = window.speechSynthesis.getVoices();
+                
+                const americanVoice = voices.find(voice => 
+                    voice.lang === 'en-US' && voice.localService
+                );
+                
                 const englishVoice = voices.find(voice => 
                     voice.lang.startsWith('en') && voice.localService
                 );
                 
-                if (englishVoice) {
+                if (americanVoice) {
+                    utterance.voice = americanVoice;
+                } else if (englishVoice) {
                     utterance.voice = englishVoice;
                 }
                 
