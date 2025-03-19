@@ -1,0 +1,19 @@
+{
+    "name": "Mario Characters Gallery",
+    "short_name": "Mario Gallery",
+    "icons": [
+        {
+            "src": "assets/mario.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/mario.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#e52521",
+    "background_color": "#f0f0f0",
+    "display": "standalone"
+} 
