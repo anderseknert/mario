@@ -81,9 +81,45 @@
             { name: 'Kamek', image: 'assets/kamek.png' },
             { name: 'Lakitu', image: 'assets/lakitu.png' },
             { name: 'Piranha Plant', image: 'assets/piranha_plant.png' },
+            { name: 'Pom Pom', image: 'https://mario.wiki.gallery/images/9/96/SMP_Pom_Pom.png' },
+            { name: 'Goomba', image: 'https://mario.wiki.gallery/images/7/7d/SMBW_Goomba.png' },
+            { name: 'Hammer Bro', image: 'https://mario.wiki.gallery/images/e/e3/NSMBU_Hammer_Bro_Artwork.png' },
+            { name: 'Monty Mole', image: 'https://mario.wiki.gallery/images/5/56/Monty_Mole_SMP.png' },
+            { name: 'Pokey', image: 'https://mario.wiki.gallery/images/e/e6/NSMBU_Pokey_Artwork.png' },
+            { name: 'Spike', image: 'https://mario.wiki.gallery/images/2/20/Spike_-_Mario_Party_10.png' },
+            { name: 'Thwomp', image: 'https://mario.wiki.gallery/images/3/34/NSMBU_Thwomp_Artwork.png' },
+            { name: 'Whomp', image: 'https://mario.wiki.gallery/images/d/de/WhompSMP.png' },
+            { name: 'Wiggler', image: 'https://mario.wiki.gallery/images/7/7c/WigglerDS.png' },
+            { name: 'Swoop', image: 'https://mario.wiki.gallery/images/3/32/Swoop_SMR.png' },
+            { name: 'Koopa Paratroopa', image: 'https://mario.wiki.gallery/images/e/e4/Paratroopart.png' },
+            { name: 'Nabbit', image: 'https://mario.wiki.gallery/images/9/94/SMBW_Nabbit.png' },
+            { name: 'King Bob-omb', image: 'https://mario.wiki.gallery/images/f/f1/SMP_-_King_Bob-omb.png' },
+            { name: 'Bullet Bill', image: 'https://mario.wiki.gallery/images/c/cd/BulletBillMK8.png' },
+            { name: 'Spiney', image: 'https://mario.wiki.gallery/images/3/3e/Spiny_Artwork_-_New_Super_Mario_Bros._2.png' },
+            { name: 'Toadette', image: 'https://mario.wiki.gallery/images/7/7d/SMBW_Toadette.png' },
+            { name: 'Chain Chomp', image: 'https://mario.wiki.gallery/images/a/a9/ChainChompMP8.png' },
+            { name: 'Toadsworth', image: 'https://mario.wiki.gallery/images/5/5b/SMS_Toadsworth_Artwork.png' },
+            { name: 'Luma', image: 'https://mario.wiki.gallery/images/7/78/Luma_SSB3DSWU.png' },
+            { name: 'Petey Piranha', image: 'https://mario.wiki.gallery/images/2/22/MPSR_Petey_Piranha.png' },
+            { name: 'Blooper', image: 'https://mario.wiki.gallery/images/b/b5/Blooper_-_MarioPartyStarRush.png' },
+            { name: 'Bob-omb', image: 'https://mario.wiki.gallery/images/9/9e/Bobomb_-_MarioPartyStarRush.png' },
+            { name: 'Cheep Cheep', image: 'https://mario.wiki.gallery/images/6/63/CheepCheepNSMBU.png' },
+            { name: 'Fuzzy', image: 'https://mario.wiki.gallery/images/7/75/NSMBU_Fuzzy_Artwork.png' },
         ];
 
-        // Create character cards
+        const voices = window.speechSynthesis.getVoices();
+        let preferredVoice = null;
+        for (const i in voices) {
+            const voice = voices[i];
+            if (voice.name == 'Daniel' && voice.lang == 'en-GB') {
+                preferredVoice = voice;
+            }
+        }
+
+        if (!preferredVoice) {
+            preferredVoice = voices.find(voice => voice.lang.startsWith('en') && voice.localService);
+        }
+
         const gallery = document.getElementById('characterGallery');
         characters.forEach(character => {
             const card = document.createElement('div');
@@ -93,28 +129,9 @@
                 <div class="character-name">${character.name}</div>
             `;
             
-            // Add click event for text-to-speech
             card.addEventListener('click', () => {
                 const utterance = new SpeechSynthesisUtterance(character.name);
-                utterance.rate = 0.8; // Slightly slower for kids
-                
-                // Get available voices and select an American English voice
-                const voices = window.speechSynthesis.getVoices();
-                
-                const americanVoice = voices.find(voice => 
-                    voice.lang === 'en-US' && voice.localService
-                );
-                
-                const englishVoice = voices.find(voice => 
-                    voice.lang.startsWith('en') && voice.localService
-                );
-                
-                if (americanVoice) {
-                    utterance.voice = americanVoice;
-                } else if (englishVoice) {
-                    utterance.voice = englishVoice;
-                }
-                
+                utterance.voice = preferredVoice;
                 window.speechSynthesis.speak(utterance);
             });
             
