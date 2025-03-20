@@ -18,14 +18,14 @@
 
     <meta property="og:title" content="Mario Characters Gallery">
     <meta property="og:description" content="Explore a collection of Mario characters in this interactive gallery. Click on characters to hear their names spoken aloud!">
-    <meta property="og:image" content="https://www.eknert.com/mario/assets/toad.png">
+    <meta property="og:image" content="https://www.eknert.com/mario/assets/gallery/toad.png">
     <meta property="og:url" content="https://www.eknert.com/mario">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mario Characters Gallery">
     <meta name="twitter:description" content="Explore a collection of Mario characters in this interactive gallery. Click on characters to hear their names spoken aloud!">
-    <meta name="twitter:image" content="https://www.eknert.com/mario/assets/mario.png">
+    <meta name="twitter:image" content="https://www.eknert.com/mario/assets/gallery/mario.png">
 
     <style>
         @font-face {
@@ -81,54 +81,54 @@
     </div>
 
     <script>
-        // Sample character data - you can expand this list
         const characters = [
-            { name: 'Mario', image: 'assets/mario.png' },
-            { name: 'Luigi', image: 'assets/luigi.png' },
-            { name: 'Princess Peach', image: 'assets/princess_peach.png' },
-            { name: 'Bowser', image: 'assets/bowser.png' },
-            { name: 'Yoshi', image: 'assets/yoshi.png' },
-            { name: 'Toad', image: 'assets/toad.png' },
-            { name: 'Donkey Kong', image: 'assets/donkey_kong.png' },
-            { name: 'Diddy Kong', image: 'assets/diddy_kong.png' },
-            { name: 'Wario', image: 'assets/wario.png' },
-            { name: 'Waluigi', image: 'assets/waluigi.png' },
-            { name: 'Rosalina', image: 'assets/rosalina.png' },
-            { name: 'Daisy', image: 'assets/daisy.png' },
-            { name: 'Bowser Jr.', image: 'assets/bowser_jr.png' },
-            { name: 'Koopa Troopa', image: 'assets/koopa_troopa.png' },
-            { name: 'Shy Guy', image: 'assets/shy_guy.png' },
-            { name: 'Boo', image: 'assets/boo.png' },
-            { name: 'Dry Bones', image: 'assets/dry_bones.png' },
-            { name: 'Birdo', image: 'assets/birdo.png' },
-            { name: 'Kamek', image: 'assets/kamek.png' },
-            { name: 'Lakitu', image: 'assets/lakitu.png' },
-            { name: 'Piranha Plant', image: 'assets/piranha_plant.png' },
-            { name: 'Pom Pom', image: 'assets/pom_pom.png' },
-            { name: 'Goomba', image: 'assets/goomba.png' },
-            { name: 'Hammer Bro', image: 'assets/hammer_bro.png' },
-            { name: 'Monty Mole', image: 'assets/monty_mole.png' },
-            { name: 'Pokey', image: 'assets/pokey.png' },
-            { name: 'Spike', image: 'assets/spike.png' },
-            { name: 'Thwomp', image: 'assets/thwomp.png' },
-            { name: 'Whomp', image: 'assets/whomp.png' },
-            { name: 'Wiggler', image: 'assets/wiggler.png' },
-            { name: 'Swoop', image: 'assets/swoop.png' },
-            { name: 'Koopa Paratroopa', image: 'assets/koopa_paratroopa.png' },
-            { name: 'Nabbit', image: 'assets/nabbit.png' },
-            { name: 'King Bob-omb', image: 'assets/king_bob_omb.png' },
-            { name: 'Bullet Bill', image: 'assets/bullet_bill.png' },
-            { name: 'Spiney', image: 'assets/spiney.png' },
-            { name: 'Toadette', image: 'assets/toadette.png' },
-            { name: 'Chain Chomp', image: 'assets/chain_chomp.png' },
-            { name: 'Toadsworth', image: 'assets/toadsworth.png' },
-            { name: 'Luma', image: 'assets/luma.png' },
-            { name: 'Petey Piranha', image: 'assets/petey_piranha.png' },
-            { name: 'Blooper', image: 'assets/blooper.png' },
-            { name: 'Bob-omb', image: 'assets/bob_omb.png' },
-            { name: 'Cheep Cheep', image: 'assets/cheep_cheep.png' },
-            { name: 'Fuzzy', image: 'assets/fuzzy.png' },
-            { name: 'Fire Flower', image: 'assets/fire_flower.png' },
+            { name: 'Mario', image: 'assets/gallery/mario.png' },
+            { name: 'Luigi', image: 'assets/gallery/luigi.png' },
+            { name: 'Princess Peach', image: 'assets/gallery/princess_peach.png' },
+            { name: 'Bowser', image: 'assets/gallery/bowser.png' },
+            { name: 'Yoshi', image: 'assets/gallery/yoshi.png' },
+            { name: 'Toad', image: 'assets/gallery/toad.png' },
+            { name: 'Donkey Kong', image: 'assets/gallery/donkey_kong.png' },
+            { name: 'Diddy Kong', image: 'assets/gallery/diddy_kong.png' },
+            { name: 'Wario', image: 'assets/gallery/wario.png' },
+            { name: 'Waluigi', image: 'assets/gallery/waluigi.png' },
+            { name: 'Rosalina', image: 'assets/gallery/rosalina.png' },
+            { name: 'Daisy', image: 'assets/gallery/daisy.png' },
+            { name: 'Bowser Jr.', image: 'assets/gallery/bowser_jr.png' },
+            { name: 'Koopa Troopa', image: 'assets/gallery/koopa_troopa.png' },
+            { name: 'Shy Guy', image: 'assets/gallery/shy_guy.png' },
+            { name: 'Boo', image: 'assets/gallery/boo.png' },
+            { name: 'Dry Bones', image: 'assets/gallery/dry_bones.png' },
+            { name: 'Birdo', image: 'assets/gallery/birdo.png' },
+            { name: 'Kamek', image: 'assets/gallery/kamek.png' },
+            { name: 'Lakitu', image: 'assets/gallery/lakitu.png' },
+            { name: 'Piranha Plant', image: 'assets/gallery/piranha_plant.png' },
+            { name: 'Pom Pom', image: 'assets/gallery/pom_pom.png' },
+            { name: 'Goomba', image: 'assets/gallery/goomba.png' },
+            { name: 'Hammer Bro', image: 'assets/gallery/hammer_bro.png' },
+            { name: 'Monty Mole', image: 'assets/gallery/monty_mole.png' },
+            { name: 'Pokey', image: 'assets/gallery/pokey.png' },
+            { name: 'Spike', image: 'assets/gallery/spike.png' },
+            { name: 'Thwomp', image: 'assets/gallery/thwomp.png' },
+            { name: 'Whomp', image: 'assets/gallery/whomp.png' },
+            { name: 'Wiggler', image: 'assets/gallery/wiggler.png' },
+            { name: 'Swoop', image: 'assets/gallery/swoop.png' },
+            { name: 'Koopa Paratroopa', image: 'assets/gallery/koopa_paratroopa.png' },
+            { name: 'Nabbit', image: 'assets/gallery/nabbit.png' },
+            { name: 'King Bob-omb', image: 'assets/gallery/king_bob_omb.png' },
+            { name: 'Bullet Bill', image: 'assets/gallery/bullet_bill.png' },
+            { name: 'Spiney', image: 'assets/gallery/spiney.png' },
+            { name: 'Toadette', image: 'assets/gallery/toadette.png' },
+            { name: 'Chain Chomp', image: 'assets/gallery/chain_chomp.png' },
+            { name: 'Toadsworth', image: 'assets/gallery/toadsworth.png' },
+            { name: 'Luma', image: 'assets/gallery/luma.png' },
+            { name: 'Petey Piranha', image: 'assets/gallery/petey_piranha.png' },
+            { name: 'Blooper', image: 'assets/gallery/blooper.png' },
+            { name: 'Bob-omb', image: 'assets/gallery/bob_omb.png' },
+            { name: 'Cheep Cheep', image: 'assets/gallery/cheep_cheep.png' },
+            { name: 'Fuzzy', image: 'assets/gallery/fuzzy.png' },
+            { name: 'Fire Flower', image: 'assets/gallery/fire_flower.png' },
+            { name: 'Baby Peach', image: 'assets/gallery/baby_peach.png' },
         ];
 
         const voices = window.speechSynthesis.getVoices();
