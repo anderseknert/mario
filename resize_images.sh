@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for file in assets/*.png; do
+for file in assets/gallery/*.png; do
     if [ -f "$file" ]; then
         echo "Processing $file..."
         # Resize to 300x300 while maintaining aspect ratio and optimizing for web
