@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,14 +18,16 @@
     <meta name="author" content="Anders Eknert">
 
     <meta property="og:title" content="Mario Characters Gallery">
-    <meta property="og:description" content="Explore a collection of Mario characters in this interactive gallery. Click on characters to hear their names spoken aloud!">
+    <meta property="og:description"
+        content="Explore a collection of Mario characters in this interactive gallery. Click on characters to hear their names spoken aloud!">
     <meta property="og:image" content="https://www.eknert.com/mario/assets/gallery/toad.png">
     <meta property="og:url" content="https://www.eknert.com/mario">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mario Characters Gallery">
-    <meta name="twitter:description" content="Explore a collection of Mario characters in this interactive gallery. Click on characters to hear their names spoken aloud!">
+    <meta name="twitter:description"
+        content="Explore a collection of Mario characters in this interactive gallery. Click on characters to hear their names spoken aloud!">
     <meta name="twitter:image" content="https://www.eknert.com/mario/assets/gallery/mario.png">
 
     <style>
@@ -32,41 +35,48 @@
             font-family: 'Comic Sans';
             src: url('/mario/assets/fonts/Comic-Sans.woff') format('woff');
         }
+
         body {
             font-family: 'Comic Sans', 'Comic Sans MS', cursive, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 20px;
         }
+
         h1 {
             text-align: center;
             color: #e52521;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
             padding: 20px;
         }
+
         .character-card {
             background: white;
             border-radius: 15px;
             padding: 15px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: transform 0.2s;
         }
+
         .character-card:hover {
             transform: scale(1.05);
         }
+
         .character-card img {
             width: 150px;
             height: 150px;
             object-fit: contain;
             border-radius: 10px;
         }
+
         .character-name {
             margin-top: 10px;
             font-size: 1.2em;
@@ -74,6 +84,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Mario Characters Gallery</h1>
     <div class="gallery" id="characterGallery">
@@ -193,7 +204,16 @@
             { name: 'Tropical Wiggler', image: 'assets/gallery/tropical_wiggler.png' },
             { name: 'Urban Stingby', image: 'assets/gallery/urban_stingby.png' },
             { name: 'Cheep Chomp', image: 'assets/gallery/cheep_chomp.png' },
+            { name: 'Blockstepper', image: 'assets/gallery/blockstepper.png' },
+            { name: 'Cat Goomba', image: 'assets/gallery/cat_goomba.png' },
+            { name: 'Coin Coffer', image: 'assets/gallery/coin_coffer.png' },
+            { name: 'Conkdor', image: 'assets/gallery/conkdor.png' },
+            { name: 'Elephant Mario', image: 'assets/gallery/elephant_mario.png' },
+            { name: 'Plessie', image: 'assets/gallery/plessie.png' },
+            { name: 'Splounder', image: 'assets/gallery/splounder.png' },
         ];
+
+
 
         const voices = window.speechSynthesis.getVoices();
         let preferredVoice = null;
@@ -216,15 +236,16 @@
                 <img src="${character.image}" alt="${character.name}">
                 <div class="character-name">${character.name}</div>
             `;
-            
+
             card.addEventListener('click', () => {
                 const utterance = new SpeechSynthesisUtterance(character.name);
                 utterance.voice = preferredVoice;
                 window.speechSynthesis.speak(utterance);
             });
-            
+
             gallery.appendChild(card);
         });
     </script>
 </body>
-</html> 
+
+</html>
